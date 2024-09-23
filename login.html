@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+            <p id="error-message" style="color:red;"></p>
+        </form>
+    </div>
+
+    <script>
+        // Xử lý đăng nhập
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Ngăn không reload trang
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error-message');
+
+            // Giả lập tài khoản hợp lệ
+            const validUsername = "user";
+            const validPassword = "1234";
+
+            // Kiểm tra thông tin đăng nhập
+            if (username === validUsername && password === validPassword) {
+                // Chuyển sang trang chủ nếu đăng nhập thành công
+                window.location.href = "index-5.html";
+            } else {
+                errorMessage.textContent = "Username hoặc password không đúng!";
+            }
+        });
+    </script>
+</body>
+</html>
